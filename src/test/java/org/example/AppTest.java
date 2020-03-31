@@ -18,18 +18,10 @@ import static org.junit.Assert.*;
  */
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
-    @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
-    }
 
     @Test
     public void addStudent() {
-        Student new_student = new Student("2314","Mihai",937,"etc@yahoo.com");
+        Student new_student = new Student("2133","Mihai",937,"etc@yahoo.com");
         StudentValidator studentValidator = new StudentValidator();
         TemaValidator temaValidator = new TemaValidator();
         String filenameStudent = "fisiere/Studenti.xml";
@@ -42,7 +34,9 @@ public class AppTest
         Service service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
 
         service.addStudent(new_student);
-        assertEquals(service.findStudent("2314"),new_student);
+        assertEquals(service.findStudent("2133"),new_student);
+
+        service.deleteStudent("2133");
 
 
     }
