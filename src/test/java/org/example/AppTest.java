@@ -34,7 +34,7 @@ public class AppTest
 
 
     @Test
-    public void addStudentTrue() {
+    public void addStudent() {
 
         Student new_student = new Student("2133","Mihai",937,"etc@yahoo.com");
 
