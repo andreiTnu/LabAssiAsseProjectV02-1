@@ -23,5 +23,16 @@ public class TemaValidator implements Validator<Tema> {
         if(entity.getPrimire() < 1 || entity.getPrimire() > 14) {
             throw new ValidationException("Saptamana primirii trebuie sa fie intre 1-14.");
         }
+        if(entity.getPrimire() > entity.getDeadline()) {
+            throw new ValidationException("Primire < Deadline!");
+        }
+        try{
+            int i = Integer.parseInt(entity.getID());
+            if (i < 0)
+                throw new ValidationException("Id trebuie sa fie pozitiv!");
+        }catch (NumberFormatException nfe)
+        {
+            throw new ValidationException("Id trebuie sa fie numar!");
+        }
     }
 }
